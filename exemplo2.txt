@@ -1,0 +1,13 @@
+h1 ping -c3 h2
+h1 ping -c3 h4
+h4 ping -c3 h5
+sh ovs-ofctl add-flow s1 action=normal
+h1 ping -c3 h2
+h1 ping -c3 h4
+h4 ping -c3 h5
+sh ovs-ofctl add-flow s2 action=normal
+h4 ping -c3 h5
+h1 ping -c3 h5
+sh ovs-ofctl add-flow s3 action=normal
+h1 ping -c3 h5
+ovs-ofctl del-flows s3
